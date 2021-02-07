@@ -1,0 +1,169 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+@font-face {
+  font-family: 'Amatic SC';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/amaticsc/v15/TUZ3zwprpvBS1izr_vOMscGKfrUC_2fi-Q.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@mixin image-as-background($imgUrl) {
+  background-image: url($imgUrl);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin display-flex($alignment: stretch, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $alignment;
+}
+
+@mixin letter-styling(
+  $family,
+  $color,
+  $size: 1rem,
+  $weight: normal,
+  $alignment: justify
+) {
+  font: {
+    family: $family;
+    size: $size;
+    weight: $weight;
+  }
+  color: $color;
+  text-align: $alignment;
+}
+
+@mixin background-gradient($direction, $color1, $color2, $color3) {
+  background-image: radial-gradient(
+    $direction,
+    $color1 0%,
+    $color2 30%,
+    $color3 70%
+  );
+}
+
+.noShow {
+  display: none;
+}
+
+.wordChoiceBackground {
+  @include image-as-background('./notebook_page.png');
+  @include display-flex(center, column);
+  min-height: 100vh;
+  padding-bottom: 10px;
+  .title {
+    @include letter-styling(
+      'Luckiest Guy',
+      $orange-500,
+      5rem,
+      $alignment: center
+    );
+    padding-top: 2rem;
+    margin: 0;
+    line-height: 5.2rem;
+    animation: shine 0.3s infinite;
+  }
+  h2 {
+    @include letter-styling('Amatic SC', $orange-300, 3rem, $alignment: center);
+    margin: 0;
+  }
+  .wordTypeField {
+    @include letter-styling('Dosis', $blue-700, 4rem, bold, center);
+    @include display-flex($direction: column);
+    margin-top: 4rem;
+    width: 75%;
+    max-width: 800px;
+    height: 400px;
+    padding: 1.2%;
+    background-color: rgb(252, 53, 49, 0.5);
+    border-radius: 15px 15px 15px 15px;
+    input {
+      align-self: center;
+      margin-top: 6vh;
+      width: 70%;
+      border: 2px dashed $blue-700;
+      font-size: 2.5rem;
+      color: $orange-500;
+    }
+    p {
+      font-size: 2rem;
+      margin: 0;
+    }
+    .idDiv {
+      @include display-flex($alignment: center);
+      justify-content: space-evenly;
+      height: 120px;
+      p {
+        @include letter-styling('Dosis', $orange-600, 3rem, bold, center);
+      }
+      .copyButton {
+        @include letter-styling('Dosis', $white, 1.5rem, bold, center);
+        @include background-gradient(ellipse, $blue-400, $blue-600, $blue-800);
+        cursor: pointer;
+        width: 120px;
+      }
+    }
+  }
+}
+
+.sendButton,
+.playButton {
+  @include letter-styling('Amatic SC', $white, 4rem, $alignment: center);
+  @include background-gradient(ellipse, $blue-400, $blue-600, $blue-800);
+  position: absolute;
+  align-self: center;
+  margin-top: 40vh;
+  width: 15%;
+  border-radius: 20px 20px 20px 20px;
+  cursor: pointer;
+  &:hover {
+    width: 10%;
+    font-size: 3rem;
+  }
+  &:disabled {
+    opacity: 75%;
+    color: $gray-900;
+    cursor: default;
+  }
+  &:disabled:hover {
+    width: 15%;
+    font-size: 4rem;
+  }
+}
+
+.playButton {
+  width: 18%;
+  i {
+    margin-left: 15px;
+  }
+  &:hover {
+    width: 15%;
+  }
+}
+
+.buttonsDiv {
+  position: absolute;
+  margin-top: 23%;
+  margin-left: 49%;
+  .iconButton {
+    @include letter-styling('Dosis', $white, 2rem);
+    @include background-gradient(ellipse, $blue-400, $blue-600, $blue-800);
+    margin-left: 4px;
+    cursor: pointer;
+  }
+}
+
+[class^='bi-']::before,
+[class*=' bi-']::before {
+  vertical-align: -5px;
+}

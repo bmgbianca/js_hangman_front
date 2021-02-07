@@ -1,0 +1,160 @@
+@font-face {
+  font-family: "Amatic SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/amaticsc/v15/TUZ3zwprpvBS1izr_vOMscGKfrUC_2fi-Q.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.noShow {
+  display: none;
+}
+
+.wordChoiceBackground {
+  background-image: url("./notebook_page.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 10px;
+}
+.wordChoiceBackground .title {
+  font-family: "Luckiest Guy";
+  font-size: 5rem;
+  font-weight: normal;
+  color: #fd7e14;
+  text-align: center;
+  padding-top: 2rem;
+  margin: 0;
+  line-height: 5.2rem;
+  animation: shine 0.3s infinite;
+}
+.wordChoiceBackground h2 {
+  font-family: "Amatic SC";
+  font-size: 3rem;
+  font-weight: normal;
+  color: #feb272;
+  text-align: center;
+  margin: 0;
+}
+.wordChoiceBackground .wordTypeField {
+  font-family: "Dosis";
+  font-size: 4rem;
+  font-weight: bold;
+  color: #084298;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 4rem;
+  width: 75%;
+  max-width: 800px;
+  height: 400px;
+  padding: 1.2%;
+  background-color: rgba(252, 53, 49, 0.5);
+  border-radius: 15px 15px 15px 15px;
+}
+.wordChoiceBackground .wordTypeField input {
+  align-self: center;
+  margin-top: 6vh;
+  width: 70%;
+  border: 2px dashed #084298;
+  font-size: 2.5rem;
+  color: #fd7e14;
+}
+.wordChoiceBackground .wordTypeField p {
+  font-size: 2rem;
+  margin: 0;
+}
+.wordChoiceBackground .wordTypeField .idDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 120px;
+}
+.wordChoiceBackground .wordTypeField .idDiv p {
+  font-family: "Dosis";
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ca6510;
+  text-align: center;
+}
+.wordChoiceBackground .wordTypeField .idDiv .copyButton {
+  font-family: "Dosis";
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  background-image: radial-gradient(ellipse, #3d8bfd 0%, #0a58ca 30%, #052c65 70%);
+  cursor: pointer;
+  width: 120px;
+}
+
+.sendButton,
+.playButton {
+  font-family: "Amatic SC";
+  font-size: 4rem;
+  font-weight: normal;
+  color: #fff;
+  text-align: center;
+  background-image: radial-gradient(ellipse, #3d8bfd 0%, #0a58ca 30%, #052c65 70%);
+  position: absolute;
+  align-self: center;
+  margin-top: 40vh;
+  width: 15%;
+  border-radius: 20px 20px 20px 20px;
+  cursor: pointer;
+}
+.sendButton:hover,
+.playButton:hover {
+  width: 10%;
+  font-size: 3rem;
+}
+.sendButton:disabled,
+.playButton:disabled {
+  opacity: 75%;
+  color: #212529;
+  cursor: default;
+}
+.sendButton:disabled:hover,
+.playButton:disabled:hover {
+  width: 15%;
+  font-size: 4rem;
+}
+
+.playButton {
+  width: 18%;
+}
+.playButton i {
+  margin-left: 15px;
+}
+.playButton:hover {
+  width: 15%;
+}
+
+.buttonsDiv {
+  position: absolute;
+  margin-top: 23%;
+  margin-left: 49%;
+}
+.buttonsDiv .iconButton {
+  font-family: "Dosis";
+  font-size: 2rem;
+  font-weight: normal;
+  color: #fff;
+  text-align: justify;
+  background-image: radial-gradient(ellipse, #3d8bfd 0%, #0a58ca 30%, #052c65 70%);
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+[class^=bi-]::before,
+[class*=" bi-"]::before {
+  vertical-align: -5px;
+}
+
+/*# sourceMappingURL=ChallengerPage.css.map */

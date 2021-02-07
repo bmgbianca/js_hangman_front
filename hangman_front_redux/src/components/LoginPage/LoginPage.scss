@@ -1,0 +1,257 @@
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+@mixin image-as-background($imgUrl) {
+  background-image: url($imgUrl);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin letter-styling(
+  $family,
+  $color,
+  $size: 1rem,
+  $alignment: justify,
+  $weight: normal
+) {
+  font: {
+    family: $family;
+    size: $size;
+    weight: $weight;
+  }
+  color: $color;
+  text-align: $alignment;
+}
+
+@mixin display-flex($alignment, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $alignment;
+}
+
+body {
+  background-image: url('./general_background.png');
+}
+
+.background {
+  @include image-as-background('./background_notebook_page.png');
+  @include display-flex(center, column);
+  min-height: 100vh;
+  h1 {
+    @include letter-styling(
+      'Luckiest Guy',
+      $orange-500,
+      5rem,
+      $alignment: center
+    );
+    line-height: 5.2rem;
+    padding-top: 2rem;
+    margin: 0;
+    animation: shine 0.3s infinite;
+  }
+  h2 {
+    @include letter-styling('Amatic SC', $orange-300, 3rem, $alignment: center);
+    margin: 0;
+  }
+  label {
+    @include letter-styling('Dosis', $blue-700, 4rem, center, bold);
+    margin-top: 2rem;
+  }
+  select {
+    @include letter-styling('Dosis', $blue-700, 1.5rem);
+    width: 200px;
+    margin-top: 1.5rem;
+    border: 2px dashed $orange-500;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  button {
+    @include letter-styling('Amatic SC', $blue-800, 4rem, $alignment: center);
+    margin-top: 2.5rem;
+    background-color: $orange;
+    width: 27%;
+    max-width: 230px;
+    border-radius: 20px 20px 20px 20px;
+    line-height: 4.1rem;
+    cursor: pointer;
+    &:hover {
+      width: 20%;
+      max-width: 190px;
+      font-size: 3rem;
+      line-height: 3.1rem;
+      color: $blue-900;
+    }
+    &:disabled {
+      background-color: $orange-300;
+      color: $gray-700;
+      opacity: 100%;
+      cursor: default;
+    }
+    &:disabled:hover {
+      width: 27%;
+      max-width: 230px;
+      font-size: 4rem;
+      line-height: 4.1rem;
+    }
+  }
+}
+
+@keyframes shine {
+  from {
+    color: $orange-500;
+  }
+  to {
+    color: $orange-100;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .background {
+    @include image-as-background('./new_background.png');
+    h1 {
+      font-size: 4.2rem;
+    }
+    label {
+      margin: 2.7rem 1.5rem 0 1.5rem;
+      font-size: 3rem;
+      line-height: 3.3rem;
+    }
+    select {
+      margin-top: 2.4rem;
+    }
+    button {
+      margin-top: 3rem;
+      font-size: 3rem;
+      line-height: 3.3rem;
+      max-width: 200px;
+      &:hover {
+        font-size: 2.3rem;
+        line-height: 2.7rem;
+        max-width: 160px;
+      }
+      &:disabled:hover {
+        font-size: 3rem;
+        line-height: 3.3rem;
+        max-width: 200px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  .background {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  .background {
+    @include image-as-background('./new_background_2.png');
+    h1 {
+      font-size: 3rem;
+      line-height: 3.3rem;
+    }
+    h2 {
+      margin-top: 0.5rem;
+      font-size: 2.2rem;
+    }
+    label {
+      font-size: 2.3rem;
+      line-height: 2.5rem;
+      margin: 2.2rem 2rem 0 2rem;
+    }
+    button {
+      font-size: 2.3rem;
+      line-height: 2.9rem;
+      width: 32%;
+      &:hover {
+        font-size: 1.9rem;
+        line-height: 2.5rem;
+        width: 27%;
+      }
+      &:disabled:hover {
+        font-size: 2.3rem;
+        line-height: 2.9rem;
+        width: 32%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1250px) and (orientation: landscape) {
+  .background {
+    @include image-as-background('./background_2.png');
+  }
+}
+
+@media only screen and (max-width: 1050px) and (orientation: landscape) {
+  .background {
+    @include image-as-background('./background_3.png');
+  }
+}
+
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  .background {
+    @include image-as-background('./background_4.png');
+    button {
+      font-size: 3rem;
+      line-height: 3.3rem;
+      max-width: 200px;
+      &:hover {
+        font-size: 2.3rem;
+        line-height: 2.7rem;
+        max-width: 160px;
+      }
+      &:disabled:hover {
+        font-size: 3rem;
+        line-height: 3.3rem;
+        max-width: 200px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .background {
+    h1 {
+      font-size: 4.5rem;
+      line-height: 4.8rem;
+    }
+    label {
+      font-size: 3.3rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+  .background {
+    @include image-as-background('./background_5.png');
+    h1 {
+      font-size: 3.7rem;
+      line-height: 4rem;
+    }
+    h2 {
+      font-size: 2.5rem;
+    }
+    label {
+      font-size: 3rem;
+    }
+    button {
+      font-size: 2.3rem;
+      line-height: 2.7rem;
+      &:hover {
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+      }
+      &:disabled:hover {
+        font-size: 2.3rem;
+        line-height: 2.7rem;
+      }
+    }
+  }
+}
