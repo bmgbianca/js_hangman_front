@@ -64,8 +64,11 @@ export default function ChallengerPage() {
       setSendButtonDivClass('noShow');
       new window.bootstrap.Tooltip(tooltip);
     } catch (err) {
-      if (err) {
+      if (err.response) {
         alert(err.response.data);
+        setGameWord('');
+      } else {
+        alert(err);
         setGameWord('');
       }
     }
