@@ -9,16 +9,23 @@ export default function ChallengerPage() {
   const [gameWord, setGameWord] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [text, setText] = useState(
+    'Digite abaixo a palavra que seu oponente terá que adivinhar:'
+  );
+  const [idNumber, setIdNumber] = useState('');
+  const [inputFieldClass, setInputFieldClass] = useState('inputField');
+  const [sendButtonDivClass, setSendButtonDivClass] = useState('sendButtonDiv');
+  const [idDivClass, setIdDivClass] = useState('noShow');
+  const [instructionParagraphClass, setInstructionParagraphClass] = useState(
+    'noShow'
+  );
+  const [iconsDivClass, setIconsDivClass] = useState('noShow');
 
   const dispatch = useDispatch();
 
-  const text = document.getElementById('text');
   let inputField = document.getElementById('input');
-  const idDiv = document.getElementById('idDiv');
   const idParagraph = document.getElementById('idParagraph');
-  const instructionParagraph = document.getElementById('instruction');
-  const sendButton = document.getElementById('sendButton');
-  const iconsDiv = document.getElementById('iconsDiv');
+  const tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
 
   useEffect(() => {
     inputField = document.getElementById('input');
@@ -48,19 +55,16 @@ export default function ChallengerPage() {
     try {
       const res = await postNewWord(gameWord);
       dispatch(changeId(res.data));
-      text.textContent = 'Este é o ID da sua palavra secreta:';
-      inputField.classList.add('noShow');
-      idDiv.classList.remove('noShow');
-      idDiv.classList.add('idDiv');
-      idParagraph.textContent = res.data;
-      instructionParagraph.classList.remove('noShow');
-      iconsDiv.classList.remove('noShow');
-      iconsDiv.classList.add('buttonsDiv');
-      sendButton.classList.remove('sendButton');
-      sendButton.classList.add('noShow');
+      setText('Este é o ID da sua palavra secreta:');
+      setInputFieldClass('noShow');
+      setIdDivClass('idDiv');
+      setIdNumber(res.data);
+      setInstructionParagraphClass('instruction');
+      setIconsDivClass('buttonsDiv');
+      setSendButtonDivClass('noShow');
+      new window.bootstrap.Tooltip(tooltip);
     } catch (err) {
-      alert(err);
-      console.log(err);
+      alert(err.response.data);
       setGameWord('');
     }
   };
@@ -72,19 +76,18 @@ export default function ChallengerPage() {
     window.getSelection().addRange(range);
     document.execCommand('copy');
     window.getSelection().removeAllRanges();
-    alert('ID copiado');
+    const tooltipInner = document.querySelector('.tooltip-inner');
+    tooltipInner.textContent = 'ID copiado';
   };
 
   const typeNewWord = () => {
     setGameWord('');
-    inputField.classList.remove('noShow');
-    idDiv.classList.add('noShow');
-    idDiv.classList.remove('idDiv');
-    iconsDiv.classList.remove('buttonsDiv');
-    iconsDiv.classList.add('noShow');
-    instructionParagraph.classList.add('noShow');
-    sendButton.classList.remove('noShow');
-    sendButton.classList.add('sendButton');
+    setText('Digite abaixo a palavra que seu oponente terá que adivinhar:');
+    setIdDivClass('noShow');
+    setInstructionParagraphClass('noShow');
+    setIconsDivClass('noShow');
+    setInputFieldClass('inputField');
+    setSendButtonDivClass('sendButtonDiv');
   };
 
   const handleScoreModal = () => {
@@ -101,36 +104,49 @@ export default function ChallengerPage() {
       <h2>O famoso jogo da FORCA!</h2>
       <section className="wordTypeField">
         <label id="text" htmlFor="gameWord">
-          Digite abaixo a palavra que seu oponente terá que adivinhar:
+          {text}
         </label>
         <input
           id="input"
+          className={inputFieldClass}
           name="gameWord"
           value={gameWord}
           type="text"
           onChange={handleGameWord}
           onKeyUp={handleGameWord}
         />
-        <div className="noShow" id="idDiv">
-          <p id="idParagraph"></p>
-          <button id="copyButton" className="copyButton" onClick={copyIdNumber}>
+        <div className={idDivClass} id="idDiv">
+          <p id="idParagraph" className="idParagraph">
+            {idNumber}
+          </p>
+          <button
+            type="button"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Copiar"
+            id="copyButton"
+            className="copyButton"
+            onClick={copyIdNumber}
+          >
             {' '}
             Copiar ID{' '}
           </button>
         </div>
-        <button
-          id="sendButton"
-          className="btn btn-lg sendButton"
-          disabled={isDisabled}
-          onClick={sendWord}
-        >
-          ENVIAR!
-        </button>
-        <p id="instruction" className="noShow">
+        <div className={sendButtonDivClass}>
+          <button
+            id="sendButton"
+            className="btn btn-lg sendButton"
+            disabled={isDisabled}
+            onClick={sendWord}
+          >
+            ENVIAR!
+          </button>
+        </div>
+        <p id="instruction" className={instructionParagraphClass}>
           Envie esse ID para o seu oponente para que ele possa jogar com a
           palavra secreta que você enviou!
         </p>
-        <div id="iconsDiv" className="noShow">
+        <div id="iconsDiv" className={iconsDivClass}>
           <button
             className="btn btn-sm iconButton"
             title="Enviar nova palavra"

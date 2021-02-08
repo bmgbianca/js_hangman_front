@@ -42,41 +42,45 @@
 }
 .wordChoiceBackground .wordTypeField {
   font-family: "Dosis";
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: bold;
   color: #084298;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: space-between;
   margin-top: 4rem;
+  padding: 25px 10px 10px 10px;
   width: 75%;
   max-width: 800px;
   height: 400px;
-  padding: 1.2%;
   background-color: rgba(252, 53, 49, 0.5);
   border-radius: 15px 15px 15px 15px;
 }
 .wordChoiceBackground .wordTypeField input {
   align-self: center;
-  margin-top: 6vh;
   width: 70%;
   border: 2px dashed #084298;
   font-size: 2.5rem;
   color: #fd7e14;
 }
-.wordChoiceBackground .wordTypeField p {
+.wordChoiceBackground .wordTypeField .sendButtonDiv {
+  height: 100px;
+}
+.wordChoiceBackground .wordTypeField .instruction {
+  margin: 20px 15px 0 15px;
   font-size: 2rem;
-  margin: 0;
 }
 .wordChoiceBackground .wordTypeField .idDiv {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  height: 120px;
+  margin-top: 15px;
+  height: 200px;
 }
-.wordChoiceBackground .wordTypeField .idDiv p {
+.wordChoiceBackground .wordTypeField .idDiv .idParagraph {
   font-family: "Dosis";
   font-size: 3rem;
   font-weight: bold;
@@ -102,16 +106,14 @@
   color: #fff;
   text-align: center;
   background-image: radial-gradient(ellipse, #3d8bfd 0%, #0a58ca 30%, #052c65 70%);
-  position: absolute;
   align-self: center;
-  margin-top: 40vh;
-  width: 15%;
+  width: 200px;
   border-radius: 20px 20px 20px 20px;
   cursor: pointer;
 }
 .sendButton:hover,
 .playButton:hover {
-  width: 10%;
+  width: 150px;
   font-size: 3rem;
 }
 .sendButton:disabled,
@@ -122,7 +124,7 @@
 }
 .sendButton:disabled:hover,
 .playButton:disabled:hover {
-  width: 15%;
+  width: 200px;
   font-size: 4rem;
 }
 
@@ -137,9 +139,8 @@
 }
 
 .buttonsDiv {
-  position: absolute;
-  margin-top: 23%;
-  margin-left: 49%;
+  margin-top: 0px;
+  margin-right: 15px;
 }
 .buttonsDiv .iconButton {
   font-family: "Dosis";
@@ -148,6 +149,7 @@
   color: #fff;
   text-align: justify;
   background-image: radial-gradient(ellipse, #3d8bfd 0%, #0a58ca 30%, #052c65 70%);
+  float: right;
   margin-left: 4px;
   cursor: pointer;
 }
@@ -155,6 +157,259 @@
 [class^=bi-]::before,
 [class*=" bi-"]::before {
   vertical-align: -5px;
+}
+
+.tooltip {
+  padding: 5px;
+  font-weight: bold;
+  background: #000;
+  border-radius: 3px 3px 3px 3px;
+  color: #fff;
+  text-align: center !important;
+}
+
+@media only screen and (max-width: 1350px) {
+  .wordChoiceBackground {
+    background-image: url("./notebook_page_2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .wordChoiceBackground {
+    background-image: url("./notebook_page_3.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .wordChoiceBackground .wordTypeField {
+    font-size: 3rem;
+  }
+  .wordChoiceBackground .wordTypeField input {
+    font-size: 2.3rem;
+  }
+  .wordChoiceBackground .wordTypeField .instruction {
+    font-size: 1.8rem;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv {
+    flex-direction: column;
+    margin-top: 15px;
+    height: 200px;
+    justify-content: center;
+  }
+
+  .buttonsDiv .iconButton {
+    font-size: 1.5rem;
+  }
+
+  [class^=bi-]::before,
+[class*=" bi-"]::before {
+    vertical-align: -3px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .wordChoiceBackground {
+    background-image: url("./notebook_page_4.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .wordChoiceBackground .wordTypeField {
+    width: 80%;
+    font-size: 2.8rem;
+  }
+  .wordChoiceBackground .wordTypeField input {
+    font-size: 2.3rem;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton {
+    width: 160px;
+    font-size: 3.5rem;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton:hover {
+    width: 125px;
+    font-size: 2.5rem;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton:disabled:hover {
+    width: 160px;
+    font-size: 3.5rem;
+  }
+  .wordChoiceBackground .wordTypeField .instruction {
+    margin-top: 5px;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv {
+    margin-top: 0;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv .idParagraph {
+    margin: 30px 0;
+  }
+}
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .wordChoiceBackground .title {
+    font-size: 4.5rem;
+  }
+  .wordChoiceBackground .wordTypeField {
+    width: 75%;
+    min-height: 470px;
+    margin-top: 3rem;
+  }
+  .wordChoiceBackground .wordTypeField .instruction {
+    font-size: 1.5rem;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv .idParagraph {
+    margin-bottom: 25px;
+    font-size: 2.7rem;
+  }
+}
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+  .wordChoiceBackground {
+    background-image: url("./notebook_page_5.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .wordChoiceBackground .title {
+    font-size: 3.7rem;
+  }
+  .wordChoiceBackground h2 {
+    font-size: 2.3rem;
+  }
+  .wordChoiceBackground .wordTypeField {
+    font-size: 2.5rem;
+  }
+  .wordChoiceBackground .wordTypeField input {
+    font-size: 2rem;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton {
+    width: 140px;
+    font-size: 3.2rem;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton:hover {
+    width: 115px;
+    font-size: 2.3rem;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton:disabled:hover {
+    width: 140px;
+    font-size: 3.2rem;
+  }
+  .wordChoiceBackground .wordTypeField .instruction {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv .idParagraph {
+    margin-top: 0px;
+    font-size: 2.3rem;
+  }
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .wordChoiceBackground {
+    background-image: url("./notebook_page_6.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .wordChoiceBackground .title {
+    font-size: 4rem;
+  }
+  .wordChoiceBackground .wordTypeField {
+    width: 65%;
+    min-height: 550px;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv .idParagraph {
+    font-size: 2.4rem;
+  }
+}
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  .wordChoiceBackground {
+    background-image: url("./notebook_page_7.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .wordChoiceBackground .title {
+    font-size: 3.7rem;
+    line-height: 4rem;
+  }
+  .wordChoiceBackground .wordTypeField {
+    font-size: 2.5rem;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton {
+    width: 125px;
+    font-size: 2.8rem;
+    border-radius: 10px 10px 10px 10px;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton:hover {
+    width: 95px;
+    font-size: 2rem;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton:disabled:hover {
+    width: 125px;
+    font-size: 2.8rem;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv {
+    height: 50px;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv .idParagraph {
+    font-size: 2rem;
+    margin-top: 0px;
+    margin-bottom: 15px;
+  }
+  .wordChoiceBackground .wordTypeField .instruction {
+    margin-top: 15px;
+  }
+}
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  .wordChoiceBackground {
+    background-image: url("./notebook_page_8.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .wordChoiceBackground .title {
+    font-size: 2.8rem;
+    line-height: 3rem;
+  }
+  .wordChoiceBackground h2 {
+    font-size: 2rem;
+  }
+  .wordChoiceBackground .wordTypeField {
+    width: 80%;
+    font-size: 2rem;
+    min-height: 400px;
+  }
+  .wordChoiceBackground .wordTypeField input {
+    font-size: 1.5rem;
+    width: 85%;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton {
+    font-size: 2.5rem;
+  }
+  .wordChoiceBackground .wordTypeField .sendButton:disabled:hover {
+    font-size: 2.5rem;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv .idParagraph {
+    font-size: 1.6rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  .wordChoiceBackground .wordTypeField .idDiv .copyButton {
+    font-size: 1.2rem;
+    width: 100px;
+  }
+  .wordChoiceBackground .wordTypeField .instruction {
+    margin-top: 35px;
+    font-size: 1.3rem;
+  }
+  .wordChoiceBackground .wordTypeField .buttonsDiv {
+    margin-right: 10px;
+  }
+  .wordChoiceBackground .wordTypeField .buttonsDiv .iconButton {
+    font-size: 1.2rem;
+  }
+  .wordChoiceBackground .wordTypeField [class^=bi-]::before,
+.wordChoiceBackground .wordTypeField [class*=" bi-"]::before {
+    vertical-align: -2px;
+  }
 }
 
 /*# sourceMappingURL=ChallengerPage.css.map */

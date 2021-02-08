@@ -154,7 +154,7 @@ body {
     @include image-as-background('./new_background_2.png');
     h1 {
       font-size: 3rem;
-      line-height: 3.3rem;
+      line-height: 3rem;
     }
     h2 {
       margin-top: 0.5rem;
@@ -163,7 +163,7 @@ body {
     label {
       font-size: 2.3rem;
       line-height: 2.5rem;
-      margin: 2.2rem 2rem 0 2rem;
+      margin: 2.7rem 2rem 1rem 2rem;
     }
     button {
       font-size: 2.3rem;
@@ -178,6 +178,30 @@ body {
         font-size: 2.3rem;
         line-height: 2.9rem;
         width: 32%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) and (orientation: portrait) {
+  .background {
+    h1 {
+      font-size: 2.5rem;
+      line-height: 2.8rem;
+    }
+    button {
+      font-size: 2rem;
+      line-height: 2.6rem;
+      width: 34%;
+      &:hover {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        width: 29%;
+      }
+      &:disabled:hover {
+        font-size: 2rem;
+        line-height: 2.6rem;
+        width: 34%;
       }
     }
   }

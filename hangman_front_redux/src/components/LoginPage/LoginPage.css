@@ -143,7 +143,7 @@ body {
   }
   .background h1 {
     font-size: 3rem;
-    line-height: 3.3rem;
+    line-height: 3rem;
   }
   .background h2 {
     margin-top: 0.5rem;
@@ -152,7 +152,7 @@ body {
   .background label {
     font-size: 2.3rem;
     line-height: 2.5rem;
-    margin: 2.2rem 2rem 0 2rem;
+    margin: 2.7rem 2rem 1rem 2rem;
   }
   .background button {
     font-size: 2.3rem;
@@ -168,6 +168,27 @@ body {
     font-size: 2.3rem;
     line-height: 2.9rem;
     width: 32%;
+  }
+}
+@media only screen and (max-width: 400px) and (orientation: portrait) {
+  .background h1 {
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+  }
+  .background button {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    width: 34%;
+  }
+  .background button:hover {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    width: 29%;
+  }
+  .background button:disabled:hover {
+    font-size: 2rem;
+    line-height: 2.6rem;
+    width: 34%;
   }
 }
 @media only screen and (max-width: 1250px) and (orientation: landscape) {
