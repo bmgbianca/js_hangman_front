@@ -61,7 +61,7 @@
 }
 .modal div {
   align-self: center;
-  height: 23vh;
+  height: 160px;
   display: flex;
 }
 .modal div .longMessage,
@@ -90,6 +90,159 @@
   color: #fff;
   text-align: center;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .modal {
+    width: 400px;
+    height: 300px;
+  }
+  .modal h1 {
+    font-size: 2rem;
+    margin-top: 0px;
+    line-height: 2.4rem;
+  }
+  .modal div {
+    height: 120px;
+  }
+  .modal div .longMessage {
+    font-size: 1.5rem;
+  }
+  .modal div .shortMessage {
+    font-size: 4rem;
+  }
+  .modal .refreshButton {
+    width: 38%;
+    padding: 5px 0;
+    font-size: 1.2rem;
+  }
+  .modal .refreshButton i {
+    margin-left: 5px;
+  }
+}
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+  .modal {
+    width: 350px;
+    height: 290px;
+  }
+  .modal h1 {
+    font-size: 1.7rem;
+    letter-spacing: 0px;
+    line-height: 2rem;
+  }
+  .modal div {
+    height: 120px;
+    padding-top: 10px;
+  }
+  .modal div .longMessage {
+    font-size: 1.2rem;
+  }
+  .modal div .shortMessage {
+    font-size: 4rem;
+  }
+  .modal .refreshButton {
+    width: 38%;
+    padding: 5px 0;
+    font-size: 1.2rem;
+  }
+  .modal .refreshButton i {
+    margin-left: 5px;
+  }
+}
+@media only screen and (max-width: 480px) and (orientation: landscape) {
+  .modal {
+    width: 300px;
+    height: 240px;
+  }
+  .modal .closeButton {
+    font-size: 1rem;
+  }
+  .modal h1 {
+    margin-top: 5px;
+  }
+  .modal div {
+    height: 85px;
+  }
+  .modal div .longMessage {
+    font-size: 1rem;
+  }
+  .modal .refreshButton {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .modal {
+    width: 400px;
+    height: 500px;
+  }
+  .modal h1 {
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+    letter-spacing: 0px;
+  }
+  .modal div {
+    height: 260px;
+    padding-top: 30px;
+  }
+  .modal div .shortMessage {
+    font-size: 5rem;
+  }
+  .modal .refreshButton {
+    width: 40%;
+    padding: 5px 0;
+  }
+  .modal .refreshButton i {
+    margin-left: 5px;
+  }
+}
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  .modal {
+    width: 350px;
+    height: 470px;
+  }
+  .modal h1 {
+    font-size: 2rem;
+    line-height: 2.3rem;
+    margin-top: 15px;
+  }
+  .modal div {
+    height: 230px;
+  }
+  .modal div .longMessage {
+    font-size: 1.8rem;
+  }
+  .modal .refreshButton {
+    width: 42%;
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  .modal {
+    width: 260px;
+    height: 320px;
+  }
+  .modal .closeButton {
+    font-size: 1rem;
+  }
+  .modal h1 {
+    font-size: 1.5rem;
+    line-height: 1.9rem;
+    margin-top: 15px;
+  }
+  .modal div {
+    height: 160px;
+    padding-top: 0px;
+  }
+  .modal div .shortMessage {
+    font-size: 4rem;
+  }
+  .modal div .longMessage {
+    font-size: 1.4rem;
+  }
+  .modal .refreshButton {
+    width: 42%;
+    font-size: 1rem;
+  }
 }
 
 /*# sourceMappingURL=ScoreModal.css.map */

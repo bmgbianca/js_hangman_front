@@ -35,7 +35,7 @@ export default function GamePage() {
   const [isDisabled, setIsDisabled] = useState(true);
   const [isScoreModalOpen, setIsScoreModalOpen] = useState(false);
   const [postFinalScore, setPostFinalScore] = useState(false);
-
+  const [message, setMessage] = useState('');
   /*Seleção das variáveis globais do Redux - id e gameLevel indicam como 
   deve ser puxada a palavra da base de dados para o jogo, enquanto gameScore 
   é para guardar a pontuação do jogador que será postada na base de dados.*/
@@ -50,7 +50,6 @@ export default function GamePage() {
   /*Aqui, selecionamos os elementos do HTML, que sofrerão mudanças ao longo do 
   jogo, como aparecer, desaparecer ou receber uma outra source.*/
   const hangImage = document.querySelector('.hang');
-  const messageParagraph = document.getElementById('message');
   const x = document.getElementById('bigX');
   const mainContent = document.getElementById('main');
   const endGameDiv = document.getElementById('endGame');
@@ -89,7 +88,7 @@ export default function GamePage() {
       removeHyphens(roundWordLettersArray);
     };
     getRoundWord();
-    if (roundWordLetters) {
+    /*if (roundWordLetters) {
       countDownChange = setInterval(() => {
         setCountDown((prevCountDown) => prevCountDown - 1);
       }, 1000);
@@ -97,7 +96,7 @@ export default function GamePage() {
     }
     return () => {
       clearInterval(countDownChange);
-    };
+    };*/
   }, []);
 
   /*Esta função, chamada no useEffect acima, deixa os hífens da palavra visíveis, 
@@ -114,7 +113,7 @@ export default function GamePage() {
       });
       setRoundWordLettersWithoutHyphen(noHyphen);
     } else {
-      setRoundWordLettersWithoutHyphen(roundWordLetters);
+      setRoundWordLettersWithoutHyphen(lettersArray);
     }
   };
 
@@ -195,7 +194,7 @@ export default function GamePage() {
           if (hangImage.src === '/forcas/forca_0.png') {
             dispatch(changeGameScore(100));
           }
-          messageParagraph.textContent = 'PARABÉNS!! VOCÊ GANHOU!';
+          setMessage('PARABÉNS!! VOCÊ GANHOU!');
           disableLetters(generalLettersArray, chosenLetter);
           setPostFinalScore(true);
           setIsDisabled(false);
@@ -245,7 +244,7 @@ export default function GamePage() {
     if (currentImageNumber === limitNumber) {
       clearInterval(timeInterval);
       dispatch(resetGameScore());
-      messageParagraph.textContent = 'GAME OVER! VOCÊ PERDEU!';
+      setMessage('GAME OVER! VOCÊ PERDEU!');
       setIsDisabled(false);
       setPostFinalScore(true);
       awnSound.play();
@@ -283,7 +282,7 @@ export default function GamePage() {
   };
 
   return (
-    <>
+    <div className="gamePageBackground">
       <audio id="erro" src="/erro.m4a" type="audio/m4a" />
       <audio id="aplausos" src="/aplausos.m4a" type="audio/m4a" />
       <audio id="awn" src="/awn.m4a" type="audio/m4a" />
@@ -307,6 +306,7 @@ export default function GamePage() {
       <h1 id="bigX" className="noShow">
         X
       </h1>
+      <div className="message2">{message}</div>
       <main id="main" className="container">
         <img
           src="/forcas/forca_0.png"
@@ -321,11 +321,14 @@ export default function GamePage() {
             <p className="countDownParagraph">{countDown}</p>
           </div>
           <div id="endGame" className="noShow">
-            <p className="message" id="message"></p>
+            <div className="message" id="message">
+              {message}
+            </div>
             <div className="endButtonsDiv">
               <button
                 className="btn viewScoreButton"
                 type="button"
+                title="VER PONTUAÇÃO"
                 disabled={isDisabled}
                 onClick={() => setIsScoreModalOpen(true)}
               >
@@ -339,7 +342,7 @@ export default function GamePage() {
                 onClick={handlePlayAgain}
               >
                 <i className="bi-arrow-clockwise"></i>
-                JOGAR <p>NOVAMENTE!</p>
+                <span>JOGAR</span> <p>NOVAMENTE!</p>
               </button>
             </div>
           </div>
@@ -373,6 +376,6 @@ export default function GamePage() {
           />
         )}
       </main>
-    </>
+    </div>
   );
 }

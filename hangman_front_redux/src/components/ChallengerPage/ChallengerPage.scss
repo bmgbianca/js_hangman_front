@@ -130,7 +130,7 @@
   cursor: pointer;
   &:hover {
     width: 150px;
-    font-size: 3rem;
+    font-size: 1rem;
   }
   &:disabled {
     opacity: 75%;
@@ -144,12 +144,18 @@
 }
 
 .playButton {
-  width: 18%;
+  width: 230px;
+  font-size: 3.7rem;
   i {
     margin-left: 15px;
   }
   &:hover {
-    width: 15%;
+    width: 200px;
+    font-size: 3rem;
+  }
+  &:disabled:hover {
+    width: 230px;
+    font-size: 3.7rem;
   }
 }
 
@@ -236,6 +242,18 @@
           font-size: 3.5rem;
         }
       }
+      .playButton {
+        width: 200px;
+        font-size: 3.2rem;
+        &:hover {
+          width: 160px;
+          font-size: 2.6rem;
+        }
+        &:disabled:hover {
+          width: 200px;
+          font-size: 3.2rem;
+        }
+      }
       .instruction {
         margin-top: 5px;
       }
@@ -297,6 +315,18 @@
           font-size: 3.2rem;
         }
       }
+      .playButton {
+        width: 180px;
+        font-size: 2.8rem;
+        &:hover {
+          width: 140px;
+          font-size: 2rem;
+        }
+        &:disabled:hover {
+          width: 180px;
+          font-size: 2.8rem;
+        }
+      }
       .instruction {
         margin-top: 0;
         font-size: 1.5rem;
@@ -349,6 +379,22 @@
         &:disabled:hover {
           width: 125px;
           font-size: 2.8rem;
+        }
+      }
+      .playButton {
+        width: 160px;
+        font-size: 2.4rem;
+        border-radius: 10px 10px 10px 10px;
+        &:hover {
+          width: 135px;
+          font-size: 1.9rem;
+        }
+        &:disabled:hover {
+          width: 160px;
+          font-size: 2.4rem;
+        }
+        i {
+          margin-left: 10px;
         }
       }
       .idDiv {

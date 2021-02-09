@@ -31,10 +31,6 @@
   align-items: $alignment;
 }
 
-body {
-  background-image: url('./general_background.png');
-}
-
 .background {
   @include image-as-background('./background_notebook_page.png');
   @include display-flex(center, column);

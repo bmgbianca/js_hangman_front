@@ -39,6 +39,7 @@ export default function ChallengedPage() {
         'Oh oh! Parece que este não é um ID válido! Verifique com seu oponente qual o ID correto.'
       );
       alert(error);
+      setGameId('');
     }
   };
 
@@ -58,15 +59,17 @@ export default function ChallengedPage() {
           onChange={handleGameId}
           onKeyUp={handleGameId}
         />
-        <button
-          id="sendButton"
-          className="btn btn-lg playButton"
-          disabled={isDisabled}
-          onClick={goToGamePage}
-        >
-          JOGAR!
-          <i className="bi-controller"></i>
-        </button>
+        <div className="sendButtonDiv">
+          <button
+            id="sendButton"
+            className="btn btn-lg playButton"
+            disabled={isDisabled}
+            onClick={goToGamePage}
+          >
+            JOGAR!
+            <i className="bi-controller"></i>
+          </button>
+        </div>
       </section>
     </main>
   );

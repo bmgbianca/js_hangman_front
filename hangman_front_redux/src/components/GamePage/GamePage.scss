@@ -79,12 +79,20 @@ audio {
   display: none;
 }
 
+.gamePageBackground {
+  background-image: url('./game_page_background.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+}
 .allLetters {
   width: 70%;
-  margin: 2% auto;
+  margin: 0 auto;
+  padding: 2%;
   .lettersToChoose {
     @include background-gradient(circle, $gray-100, $gray-300, $gray-500);
-    width: 7%;
+    width: 6.5%;
     max-width: 65px;
     margin: 0.3%;
     border: 1.5px dashed $orange-200;
@@ -100,26 +108,32 @@ audio {
   margin-top: 13vh;
 }
 
+.message2 {
+  display: none;
+}
+
 .container {
   @include display-flex($alignment: flex-end, $justification: space-between);
-  height: 67vh;
+  height: 70vh;
   max-width: 100vw !important;
   margin: 0;
   padding: 1%;
   .hang {
     width: 45%;
     max-width: 380px;
+    align-self: center;
   }
   .secondColumn {
     @include display-flex($justification: space-between, $direction: column);
-    width: 60%;
+    width: 65%;
     height: 100%;
   }
 }
 
 .timerDiv {
   @include letter-styling('Amatic SC', $blue-900, 3rem, bold, center);
-  width: 50%;
+  width: 300px;
+  align-self: center;
   .timeMessage {
     margin-bottom: 5px;
   }
@@ -135,8 +149,12 @@ audio {
 }
 
 .endGame {
+  box-sizing: border-box;
   display: flex;
-  margin: auto 0;
+  justify-content: space-between;
+  width: 100%;
+  margin: auto 0px;
+  padding: 0 70px;
   .message {
     @include letter-styling(
       'Press Start 2P',
@@ -144,13 +162,13 @@ audio {
       3rem,
       $alignment: center
     );
-    width: 60%;
+    width: 450px;
     animation: shine 0.5s infinite;
   }
   .endButtonsDiv {
     @include display-flex($direction: column);
     align-self: center;
-    width: 25%;
+    width: 210px;
     margin-left: 3rem;
     .playAgainButton,
     .viewScoreButton {
@@ -198,6 +216,8 @@ audio {
 
 .dashes {
   @include display-flex($wrap: wrap);
+  box-sizing: border-box;
+  padding-left: 50px;
   width: 100%;
   align-self: center;
   .letterDashPair {
@@ -245,4 +265,433 @@ audio {
 
 .disabled {
   visibility: hidden;
+}
+
+@media only screen and (max-width: 1350px) {
+  .gamePageBackground {
+    background-image: url('./game_page_background_2.png');
+  }
+  .allLetters {
+    width: 85%;
+    .lettersToChoose {
+      width: 7%;
+    }
+  }
+  .endGame {
+    .message {
+      font-size: 2.8rem;
+    }
+    .endButtonsDiv {
+      .playAgainButton {
+        font-size: 1rem;
+        i {
+          font-size: 2.3rem;
+          margin-right: 5px;
+        }
+      }
+      .viewScoreButton {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .allLetters {
+    width: 90%;
+    .lettersToChoose {
+      width: 6%;
+    }
+  }
+  .endGame {
+    padding-left: 60px;
+    padding-right: 20px;
+    .message {
+      width: 70%;
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+    }
+    .endButtonsDiv {
+      margin-left: 0;
+      width: 180px;
+      .playAgainButton {
+        font-size: 0.8rem;
+        i {
+          font-size: 1.7rem;
+        }
+      }
+      .viewScoreButton {
+        font-size: 0.65rem;
+        i {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  .dashes {
+    .letterDashPair {
+      width: 11%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .endGame {
+    padding-left: 50px;
+    padding-right: 0px;
+    .message {
+      font-size: 2rem;
+      line-height: 2.6rem;
+    }
+    .endButtonsDiv {
+      width: 150px;
+      .viewScoreButton {
+        width: 50%;
+        i {
+          margin: 0 auto;
+        }
+        p {
+          display: none;
+        }
+      }
+      .playAgainButton {
+        width: 90%;
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 950px) and (orientation: landscape) {
+  .gamePageBackground {
+    background-image: url('./game_page_background_3.png');
+  }
+
+  .container {
+    .hang {
+      width: 45vh;
+    }
+  }
+
+  .timerDiv {
+    font-size: 2.5rem;
+    margin: auto 25px;
+    .timeMessage {
+      margin-top: 0;
+    }
+    .countDownParagraph {
+      font-size: 4.5rem;
+    }
+    .alert {
+      font-size: 6.5rem;
+    }
+  }
+
+  .endGame {
+    .message {
+      font-size: 1.8rem;
+    }
+    .endButtonsDiv {
+      margin-right: 20px;
+      width: 85px;
+      .viewScoreButton {
+        width: 75%;
+        i {
+          font-size: 1.5rem;
+        }
+        p {
+          display: none;
+        }
+      }
+      .playAgainButton {
+        width: 100%;
+        border-radius: 100%;
+        margin-top: 15px;
+        i {
+          font-size: 3.5rem;
+        }
+        span,
+        p {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .dashes {
+    .letterDashPair {
+      width: 12%;
+    }
+  }
+}
+
+@media only screen and(max-width: 768px) and (orientation: landscape) {
+  .gamePageBackground {
+    background-image: url('./game_page_background_4.png');
+  }
+  .message2 {
+    display: block;
+    @include letter-styling(
+      'Press Start 2P',
+      $orange-500,
+      1.8rem,
+      $alignment: center
+    );
+    width: 400px;
+    height: 5vh;
+    margin: 20px auto;
+    padding-bottom: 20px;
+    animation: shine 0.5s infinite;
+  }
+  .timerDiv {
+    font-size: 2rem;
+    width: 200px;
+    .countDownParagraph {
+      font-size: 3rem;
+    }
+    .alert {
+      font-size: 6rem;
+    }
+  }
+  .endGame {
+    justify-content: flex-end;
+    .message {
+      display: none;
+    }
+    .endButtonsDiv {
+      margin-right: 30px;
+      width: 140px;
+      .viewScoreButton {
+        width: 60%;
+        i {
+          font-size: 2rem;
+        }
+      }
+      .playAgainButton {
+        width: 100%;
+        border-radius: 20px 20px 20px 20px;
+        margin-top: 15px;
+        i {
+          font-size: 1.8rem;
+        }
+        span {
+          display: inline;
+        }
+        p {
+          display: block;
+        }
+      }
+    }
+  }
+  .container {
+    height: 55vh;
+    .hang {
+      align-self: flex-end;
+    }
+    .secondColumn {
+      justify-content: flex-end;
+    }
+  }
+  .dashes {
+    .letterDashPair {
+      width: 14%;
+    }
+  }
+}
+
+@media only screen and( max-width: 600px) and (orientation: landscape) {
+  .allLetters {
+    .lettersToChoose {
+      width: 8%;
+    }
+  }
+  .message2 {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    width: 250px;
+  }
+  .container {
+    .secondColumn {
+      justify-content: space-between;
+    }
+  }
+
+  .timerDiv {
+    font-size: 1.5rem;
+    width: 150px;
+    margin-bottom: 20px;
+    margin-left: 45px;
+    .countDownParagraph {
+      font-size: 2.5rem;
+    }
+    .alert {
+      font-size: 3.5rem;
+    }
+  }
+
+  .endGame {
+    .endButtonsDiv {
+      width: 110px;
+    }
+    .viewScoreButton {
+      width: 50%;
+      i.bi-award-fill::before {
+        font-size: 1.5rem;
+        vertical-align: 5px;
+      }
+    }
+    .playAgainButton {
+      width: 100%;
+      border-radius: 5px 5px 5px 5px;
+      margin-top: 15px;
+      i {
+        font-size: 1.3rem;
+      }
+      span,
+      p {
+        font-size: 0.6rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (orientation: portrait) {
+  .gamePageBackground {
+    background-image: url('./game_page_background_5.png');
+  }
+
+  .allLetters {
+    width: 70%;
+    .lettersToChoose {
+      width: 9%;
+    }
+  }
+
+  .container {
+    height: 60vh;
+    .hang {
+      width: 40vh;
+      align-self: flex-end;
+    }
+  }
+
+  .timerDiv {
+    font-size: 2.5rem;
+    margin: auto 25px;
+    .timeMessage {
+      margin-top: 0;
+    }
+    .countDownParagraph {
+      font-size: 4rem;
+    }
+    .alert {
+      font-size: 6.5rem;
+    }
+  }
+
+  .endGame {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 28vh;
+    margin: 150px 0 0 0;
+    .message {
+      font-size: 1.5rem;
+    }
+    .endButtonsDiv {
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 100%;
+      .viewScoreButton {
+        width: 20%;
+        p {
+          display: none;
+        }
+        i {
+          margin: 0 auto;
+        }
+      }
+      .playAgainButton {
+        width: 45%;
+        padding: 2px;
+      }
+    }
+  }
+
+  .dashes {
+    .letterDashPair {
+      width: 15%;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .gamePageBackground {
+    background-image: url('./game_page_background_6.png');
+  }
+
+  .allLetters {
+    width: 80%;
+    .lettersToChoose {
+      width: 8%;
+    }
+  }
+
+  .container {
+    height: 65vh;
+    .hang {
+      width: 37vh;
+      align-self: flex-end;
+    }
+  }
+
+  .timerDiv {
+    width: 230px;
+    font-size: 2.5rem;
+    margin: auto 30px;
+    .timeMessage {
+      margin-top: 0;
+    }
+    .countDownParagraph {
+      font-size: 4rem;
+    }
+    .alert {
+      font-size: 6.5rem;
+    }
+  }
+
+  .endGame {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 28vh;
+    margin: 150px 0 0 0;
+    .message {
+      font-size: 1.5rem;
+    }
+    .endButtonsDiv {
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 100%;
+      .viewScoreButton {
+        width: 20%;
+        p {
+          display: none;
+        }
+        i {
+          margin: 0 auto;
+        }
+      }
+      .playAgainButton {
+        width: 45%;
+        padding: 2px;
+      }
+    }
+  }
+
+  .dashes {
+    .letterDashPair {
+      width: 17%;
+    }
+  }
 }

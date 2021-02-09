@@ -114,7 +114,7 @@
 .sendButton:hover,
 .playButton:hover {
   width: 150px;
-  font-size: 3rem;
+  font-size: 1rem;
 }
 .sendButton:disabled,
 .playButton:disabled {
@@ -129,13 +129,19 @@
 }
 
 .playButton {
-  width: 18%;
+  width: 230px;
+  font-size: 3.7rem;
 }
 .playButton i {
   margin-left: 15px;
 }
 .playButton:hover {
-  width: 15%;
+  width: 200px;
+  font-size: 3rem;
+}
+.playButton:disabled:hover {
+  width: 230px;
+  font-size: 3.7rem;
 }
 
 .buttonsDiv {
@@ -234,6 +240,18 @@
     width: 160px;
     font-size: 3.5rem;
   }
+  .wordChoiceBackground .wordTypeField .playButton {
+    width: 200px;
+    font-size: 3.2rem;
+  }
+  .wordChoiceBackground .wordTypeField .playButton:hover {
+    width: 160px;
+    font-size: 2.6rem;
+  }
+  .wordChoiceBackground .wordTypeField .playButton:disabled:hover {
+    width: 200px;
+    font-size: 3.2rem;
+  }
   .wordChoiceBackground .wordTypeField .instruction {
     margin-top: 5px;
   }
@@ -292,6 +310,18 @@
     width: 140px;
     font-size: 3.2rem;
   }
+  .wordChoiceBackground .wordTypeField .playButton {
+    width: 180px;
+    font-size: 2.8rem;
+  }
+  .wordChoiceBackground .wordTypeField .playButton:hover {
+    width: 140px;
+    font-size: 2rem;
+  }
+  .wordChoiceBackground .wordTypeField .playButton:disabled:hover {
+    width: 180px;
+    font-size: 2.8rem;
+  }
   .wordChoiceBackground .wordTypeField .instruction {
     margin-top: 0;
     font-size: 1.5rem;
@@ -345,6 +375,22 @@
   .wordChoiceBackground .wordTypeField .sendButton:disabled:hover {
     width: 125px;
     font-size: 2.8rem;
+  }
+  .wordChoiceBackground .wordTypeField .playButton {
+    width: 160px;
+    font-size: 2.4rem;
+    border-radius: 10px 10px 10px 10px;
+  }
+  .wordChoiceBackground .wordTypeField .playButton:hover {
+    width: 135px;
+    font-size: 1.9rem;
+  }
+  .wordChoiceBackground .wordTypeField .playButton:disabled:hover {
+    width: 160px;
+    font-size: 2.4rem;
+  }
+  .wordChoiceBackground .wordTypeField .playButton i {
+    margin-left: 10px;
   }
   .wordChoiceBackground .wordTypeField .idDiv {
     height: 50px;
