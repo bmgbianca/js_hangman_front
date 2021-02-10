@@ -252,14 +252,14 @@
 @media only screen and (max-width: 600px) and (orientation: portrait) {
   .modal {
     width: 350px;
-    height: 470px;
+    height: 57vh;
     h1 {
       font-size: 2rem;
       line-height: 2.3rem;
       margin-top: 15px;
     }
     div {
-      height: 230px;
+      height: 190px;
       .longMessage {
         font-size: 1.8rem;
       }

@@ -289,17 +289,18 @@ export default function GamePage() {
       <section className="allLetters">
         {generalLettersArray.map((letter, i) => {
           return (
-            <img
-              key={0 + letter + i}
-              id={letter}
-              className="shadow-lg lettersToChoose"
-              src={`/letras/${letter}.png`}
-              alt="letra"
-              type="image/png"
-              onClick={handleLetterChoice}
-              onMouseEnter={(e) => e.target.classList.remove('shadow-lg')}
-              onMouseLeave={(e) => e.target.classList.add('shadow-lg')}
-            />
+            <div key={0 + letter + i} className="letterContainer">
+              <img
+                id={letter}
+                className="shadow-lg lettersToChoose"
+                src={`/letras/${letter}.png`}
+                alt="letra"
+                type="image/png"
+                onClick={handleLetterChoice}
+                onMouseEnter={(e) => e.target.classList.remove('shadow-lg')}
+                onMouseLeave={(e) => e.target.classList.add('shadow-lg')}
+              />
+            </div>
           );
         })}
       </section>
@@ -338,6 +339,7 @@ export default function GamePage() {
               <button
                 className="btn playAgainButton"
                 type="button"
+                title="JOGAR NOVAMENTE"
                 disabled={isDisabled}
                 onClick={handlePlayAgain}
               >

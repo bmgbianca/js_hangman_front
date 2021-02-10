@@ -38,17 +38,26 @@ audio {
   width: 70%;
   margin: 0 auto;
   padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
 }
-.allLetters .lettersToChoose {
-  background-image: radial-gradient(circle, #f8f9fa 0%, #dee2e6 50%, #adb5bd 90%);
+.allLetters .letterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 6.5%;
   max-width: 65px;
-  margin: 0.3%;
+  margin: 0.55%;
+}
+.allLetters .letterContainer .lettersToChoose {
+  background-image: radial-gradient(circle, #f8f9fa 0%, #dee2e6 50%, #adb5bd 90%);
+  width: 100%;
   border: 1.5px dashed #fecba1;
   cursor: pointer;
 }
-.allLetters .lettersToChoose:hover {
-  width: 6%;
+.allLetters .letterContainer .lettersToChoose:hover {
+  width: 85%;
 }
 
 .bigX {
@@ -188,7 +197,6 @@ audio {
   flex-wrap: wrap;
   box-sizing: border-box;
   padding-left: 50px;
-  width: 100%;
   align-self: center;
 }
 .dashes .letterDashPair {
@@ -197,7 +205,7 @@ audio {
   align-items: stretch;
   justify-content: flex-start;
   flex-wrap: nowrap;
-  width: 10%;
+  width: 6vw;
 }
 .dashes .letterDashPair .gameLetter {
   width: 100%;
@@ -247,7 +255,7 @@ audio {
   .allLetters {
     width: 85%;
   }
-  .allLetters .lettersToChoose {
+  .allLetters .letterContainer {
     width: 7%;
   }
 
@@ -269,7 +277,7 @@ audio {
   .allLetters {
     width: 90%;
   }
-  .allLetters .lettersToChoose {
+  .allLetters .letterContainer {
     width: 6%;
   }
 
@@ -300,7 +308,7 @@ audio {
   }
 
   .dashes .letterDashPair {
-    width: 11%;
+    width: 7vw;
   }
 }
 @media only screen and (max-width: 1050px) {
@@ -382,7 +390,7 @@ audio {
   }
 
   .dashes .letterDashPair {
-    width: 12%;
+    width: 8vw;
   }
 }
 @media only screen and (max-width: 768px) and (orientation: landscape) {
@@ -457,11 +465,11 @@ audio {
   }
 
   .dashes .letterDashPair {
-    width: 14%;
+    width: 9vw;
   }
 }
 @media only screen and (max-width: 600px) and (orientation: landscape) {
-  .allLetters .lettersToChoose {
+  .allLetters .letterContainer {
     width: 8%;
   }
 
@@ -473,6 +481,7 @@ audio {
 
   .container .secondColumn {
     justify-content: space-between;
+    align-items: center;
   }
 
   .timerDiv {
@@ -511,6 +520,65 @@ audio {
     font-size: 0.6rem;
   }
 }
+@media only screen and (max-width: 480px) and (orientation: landscape) {
+  .gamePageBackground {
+    background-image: url("./game_page_background_5.png");
+  }
+
+  .message2 {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    line-height: 1.1rem;
+  }
+
+  .container {
+    height: 55vh;
+  }
+
+  .timerDiv {
+    font-size: 1.3rem;
+    width: 75%;
+    margin-top: 20px;
+  }
+  .timerDiv .countDownParagraph {
+    font-size: 2.3rem;
+  }
+  .timerDiv .alert {
+    font-size: 3.5rem;
+  }
+
+  .endGame {
+    margin-top: 30px;
+    padding: 0px;
+    justify-content: center;
+  }
+  .endGame .endButtonsDiv {
+    height: 150px;
+    margin: 0px;
+  }
+  .endGame .endButtonsDiv .viewScoreButton {
+    width: 35px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 5px 5px 5px 5px;
+  }
+  .endGame .endButtonsDiv .viewScoreButton i.bi-award-fill::before {
+    font-size: 0.8rem;
+    vertical-align: 10px;
+  }
+  .endGame .endButtonsDiv .playAgainButton {
+    width: 70px;
+    padding: 10px 0;
+    border-radius: 100%;
+  }
+  .endGame .endButtonsDiv .playAgainButton i {
+    font-size: 2.5rem;
+  }
+  .endGame .endButtonsDiv .playAgainButton p,
+.endGame .endButtonsDiv .playAgainButton span {
+    display: none;
+  }
+}
 @media only screen and (min-width: 768px) and (orientation: portrait) {
   .gamePageBackground {
     background-image: url("./game_page_background_5.png");
@@ -519,7 +587,7 @@ audio {
   .allLetters {
     width: 70%;
   }
-  .allLetters .lettersToChoose {
+  .allLetters .letterContainer {
     width: 9%;
   }
 
@@ -575,7 +643,7 @@ audio {
   }
 
   .dashes .letterDashPair {
-    width: 15%;
+    width: 10vw;
   }
 }
 @media only screen and (max-width: 768px) and (orientation: portrait) {
@@ -586,12 +654,12 @@ audio {
   .allLetters {
     width: 80%;
   }
-  .allLetters .lettersToChoose {
+  .allLetters .letterContainer {
     width: 8%;
   }
 
   .container {
-    height: 65vh;
+    height: 60vh;
   }
   .container .hang {
     width: 37vh;
@@ -600,17 +668,17 @@ audio {
 
   .timerDiv {
     width: 230px;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: auto 30px;
   }
   .timerDiv .timeMessage {
     margin-top: 0;
   }
   .timerDiv .countDownParagraph {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   .timerDiv .alert {
-    font-size: 6.5rem;
+    font-size: 5.5rem;
   }
 
   .endGame {
@@ -630,6 +698,7 @@ audio {
   }
   .endGame .endButtonsDiv .viewScoreButton {
     width: 20%;
+    border-radius: 100%;
   }
   .endGame .endButtonsDiv .viewScoreButton p {
     display: none;
@@ -643,7 +712,143 @@ audio {
   }
 
   .dashes .letterDashPair {
-    width: 17%;
+    width: 9vw;
+  }
+}
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  .allLetters {
+    width: 82%;
+  }
+
+  .message2 {
+    display: block;
+    font-family: "Press Start 2P";
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #fd7e14;
+    text-align: center;
+    line-height: 1.7rem;
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 20px;
+    animation: shine 0.5s infinite;
+  }
+
+  .container {
+    height: 58vh;
+  }
+  .container .hang {
+    width: 40vh;
+  }
+
+  .timerDiv {
+    width: 165px;
+    font-size: 1.8rem;
+    margin: 50px 10px 0 20px;
+  }
+  .timerDiv .timeMessage {
+    margin-top: 0;
+  }
+  .timerDiv .countDownParagraph {
+    font-size: 2.5rem;
+  }
+  .timerDiv .alert {
+    font-size: 3.5rem;
+  }
+
+  .endGame {
+    margin: 60px 0 0 0;
+  }
+  .endGame .message {
+    display: none;
+  }
+  .endGame .endButtonsDiv {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 200px;
+  }
+  .endGame .endButtonsDiv .viewScoreButton {
+    width: 20%;
+  }
+  .endGame .endButtonsDiv .viewScoreButton i {
+    font-size: 0.9rem;
+  }
+  .endGame .endButtonsDiv .playAgainButton {
+    width: 120px;
+  }
+  .endGame .endButtonsDiv .playAgainButton i {
+    font-size: 1.4rem;
+  }
+  .endGame .endButtonsDiv .playAgainButton p,
+.endGame .endButtonsDiv .playAgainButton span {
+    font-size: 0.6rem;
+  }
+
+  .dashes {
+    padding-left: 15px;
+  }
+  .dashes .letterDashPair {
+    width: 10vw;
+  }
+}
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  .gamePageBackground {
+    background-image: url("./game_page_background_7.png");
+  }
+
+  .message2 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    width: 200px;
+  }
+
+  .container {
+    height: 52vh;
+  }
+  .container .hang {
+    width: 35vh;
+  }
+
+  .timerDiv {
+    width: 75%;
+    font-size: 1.3rem;
+    margin: 50px 5px 0 20px;
+  }
+  .timerDiv .countDownParagraph {
+    font-size: 2.2rem;
+  }
+  .timerDiv .alert {
+    font-size: 3.2rem;
+  }
+
+  .endGame {
+    margin-top: 30px;
+    padding: 0px;
+    justify-content: center;
+  }
+  .endGame .endButtonsDiv {
+    height: 230px;
+  }
+  .endGame .endButtonsDiv .viewScoreButton {
+    width: 35px;
+    padding: 5px 0px;
+    border-radius: 5px 5px 5px 5px;
+  }
+  .endGame .endButtonsDiv .viewScoreButton i.bi-award-fill::before {
+    font-size: 0.8rem;
+    vertical-align: 1px;
+  }
+  .endGame .endButtonsDiv .playAgainButton {
+    width: 70px;
+    padding: 10px 0;
+    border-radius: 100%;
+  }
+  .endGame .endButtonsDiv .playAgainButton i {
+    font-size: 2.5rem;
+  }
+  .endGame .endButtonsDiv .playAgainButton p,
+.endGame .endButtonsDiv .playAgainButton span {
+    display: none;
   }
 }
 

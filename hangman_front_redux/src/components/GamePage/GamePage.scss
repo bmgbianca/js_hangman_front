@@ -90,15 +90,24 @@ audio {
   width: 70%;
   margin: 0 auto;
   padding: 2%;
-  .lettersToChoose {
-    @include background-gradient(circle, $gray-100, $gray-300, $gray-500);
+  display: flex;
+  flex-wrap: wrap;
+  .letterContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 6.5%;
     max-width: 65px;
-    margin: 0.3%;
-    border: 1.5px dashed $orange-200;
-    cursor: pointer;
-    &:hover {
-      width: 6%;
+    margin: 0.55%;
+    .lettersToChoose {
+      @include background-gradient(circle, $gray-100, $gray-300, $gray-500);
+      width: 100%;
+      border: 1.5px dashed $orange-200;
+      cursor: pointer;
+      &:hover {
+        width: 85%;
+      }
     }
   }
 }
@@ -218,11 +227,11 @@ audio {
   @include display-flex($wrap: wrap);
   box-sizing: border-box;
   padding-left: 50px;
-  width: 100%;
+  //width: 30%;
   align-self: center;
   .letterDashPair {
     @include display-flex($direction: column);
-    width: 10%;
+    width: 6vw;
     .gameLetter {
       width: 100%;
     }
@@ -273,7 +282,7 @@ audio {
   }
   .allLetters {
     width: 85%;
-    .lettersToChoose {
+    .letterContainer {
       width: 7%;
     }
   }
@@ -299,7 +308,7 @@ audio {
 @media only screen and (max-width: 1180px) {
   .allLetters {
     width: 90%;
-    .lettersToChoose {
+    .letterContainer {
       width: 6%;
     }
   }
@@ -330,7 +339,7 @@ audio {
   }
   .dashes {
     .letterDashPair {
-      width: 11%;
+      width: 7vw;
     }
   }
 }
@@ -420,7 +429,7 @@ audio {
 
   .dashes {
     .letterDashPair {
-      width: 12%;
+      width: 8vw;
     }
   }
 }
@@ -494,14 +503,14 @@ audio {
   }
   .dashes {
     .letterDashPair {
-      width: 14%;
+      width: 9vw;
     }
   }
 }
 
 @media only screen and( max-width: 600px) and (orientation: landscape) {
   .allLetters {
-    .lettersToChoose {
+    .letterContainer {
       width: 8%;
     }
   }
@@ -513,6 +522,7 @@ audio {
   .container {
     .secondColumn {
       justify-content: space-between;
+      align-items: center;
     }
   }
 
@@ -555,6 +565,66 @@ audio {
   }
 }
 
+@media only screen and (max-width: 480px) and (orientation: landscape) {
+  .gamePageBackground {
+    background-image: url('./game_page_background_5.png');
+  }
+  .message2 {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    line-height: 1.1rem;
+  }
+
+  .container {
+    height: 55vh;
+  }
+
+  .timerDiv {
+    font-size: 1.3rem;
+    width: 75%;
+    margin-top: 20px;
+    .countDownParagraph {
+      font-size: 2.3rem;
+    }
+    .alert {
+      font-size: 3.5rem;
+    }
+  }
+
+  .endGame {
+    margin-top: 30px;
+    padding: 0px;
+    justify-content: center;
+    .endButtonsDiv {
+      height: 150px;
+      margin: 0px;
+      .viewScoreButton {
+        width: 35px;
+        padding: 0px;
+        margin: 0px;
+        border-radius: 5px 5px 5px 5px;
+
+        i.bi-award-fill::before {
+          font-size: 0.8rem;
+          vertical-align: 10px;
+        }
+      }
+      .playAgainButton {
+        width: 70px;
+        padding: 10px 0;
+        border-radius: 100%;
+        i {
+          font-size: 2.5rem;
+        }
+        p,
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 768px) and (orientation: portrait) {
   .gamePageBackground {
     background-image: url('./game_page_background_5.png');
@@ -562,7 +632,7 @@ audio {
 
   .allLetters {
     width: 70%;
-    .lettersToChoose {
+    .letterContainer {
       width: 9%;
     }
   }
@@ -620,7 +690,7 @@ audio {
 
   .dashes {
     .letterDashPair {
-      width: 15%;
+      width: 10vw;
     }
   }
 }
@@ -632,13 +702,13 @@ audio {
 
   .allLetters {
     width: 80%;
-    .lettersToChoose {
+    .letterContainer {
       width: 8%;
     }
   }
 
   .container {
-    height: 65vh;
+    height: 60vh;
     .hang {
       width: 37vh;
       align-self: flex-end;
@@ -647,16 +717,16 @@ audio {
 
   .timerDiv {
     width: 230px;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin: auto 30px;
     .timeMessage {
       margin-top: 0;
     }
     .countDownParagraph {
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
     .alert {
-      font-size: 6.5rem;
+      font-size: 5.5rem;
     }
   }
 
@@ -675,6 +745,7 @@ audio {
       width: 100%;
       .viewScoreButton {
         width: 20%;
+        border-radius: 100%;
         p {
           display: none;
         }
@@ -691,7 +762,155 @@ audio {
 
   .dashes {
     .letterDashPair {
-      width: 17%;
+      width: 9vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  .allLetters {
+    width: 82%;
+  }
+
+  .message2 {
+    display: block;
+    @include letter-styling(
+      'Press Start 2P',
+      $orange-500,
+      1.2rem,
+      $alignment: center
+    );
+    line-height: 1.7rem;
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 20px;
+    animation: shine 0.5s infinite;
+  }
+
+  .container {
+    height: 58vh;
+    .hang {
+      width: 40vh;
+    }
+  }
+
+  .timerDiv {
+    width: 165px;
+    font-size: 1.8rem;
+    margin: 50px 10px 0 20px;
+    .timeMessage {
+      margin-top: 0;
+    }
+    .countDownParagraph {
+      font-size: 2.5rem;
+    }
+    .alert {
+      font-size: 3.5rem;
+    }
+  }
+
+  .endGame {
+    margin: 60px 0 0 0;
+    .message {
+      display: none;
+    }
+    .endButtonsDiv {
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 200px;
+      .viewScoreButton {
+        width: 20%;
+
+        i {
+          font-size: 0.9rem;
+        }
+      }
+      .playAgainButton {
+        width: 120px;
+        i {
+          font-size: 1.4rem;
+        }
+        p,
+        span {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+
+  .dashes {
+    padding-left: 15px;
+    .letterDashPair {
+      width: 10vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  .gamePageBackground {
+    background-image: url('./game_page_background_7.png');
+  }
+
+  .allLetters {
+    // width: 82%;
+  }
+
+  .message2 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    width: 200px;
+    //margin: 0 auto;
+    // padding-top: 20px;
+    //animation: shine 0.5s infinite;
+  }
+
+  .container {
+    height: 52vh;
+    .hang {
+      width: 35vh;
+    }
+  }
+
+  .timerDiv {
+    width: 75%;
+    font-size: 1.3rem;
+    margin: 50px 5px 0 20px;
+    .countDownParagraph {
+      font-size: 2.2rem;
+    }
+    .alert {
+      font-size: 3.2rem;
+    }
+  }
+
+  .endGame {
+    margin-top: 30px;
+    padding: 0px;
+    justify-content: center;
+    .endButtonsDiv {
+      height: 230px;
+      .viewScoreButton {
+        width: 35px;
+        padding: 5px 0px;
+        border-radius: 5px 5px 5px 5px;
+
+        i.bi-award-fill::before {
+          font-size: 0.8rem;
+          vertical-align: 1px;
+        }
+      }
+      .playAgainButton {
+        width: 70px;
+        padding: 10px 0;
+        border-radius: 100%;
+        i {
+          font-size: 2.5rem;
+        }
+        p,
+        span {
+          display: none;
+        }
+      }
     }
   }
 }
