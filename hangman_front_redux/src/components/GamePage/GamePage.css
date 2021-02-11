@@ -83,10 +83,10 @@ audio {
   height: 70vh;
   max-width: 100vw !important;
   margin: 0;
-  padding: 3vh;
+  padding: 5vh;
 }
 .container .hang {
-  width: 45%;
+  width: 60vh;
   max-width: 380px;
 }
 .container .secondColumn {
@@ -96,7 +96,7 @@ audio {
   justify-content: space-between;
   flex-wrap: nowrap;
   width: 65%;
-  height: 100%;
+  height: 70vh;
 }
 
 .timerDiv {
@@ -124,18 +124,22 @@ audio {
 .endGame {
   box-sizing: border-box;
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   width: 100%;
   margin: auto 0px;
   padding: 0 70px;
 }
 .endGame .message {
   font-family: "Press Start 2P";
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: normal;
   color: #fd7e14;
   text-align: center;
-  width: 450px;
+  line-height: 3rem;
+  width: 500px;
   animation: shine 0.5s infinite;
 }
 .endGame .endButtonsDiv {
@@ -247,7 +251,26 @@ audio {
   visibility: hidden;
 }
 
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-height: 600px) and (min-width: 1180px) {
+  .endGame .message {
+    width: 450px;
+    font-size: 2.3rem;
+    line-height: 2.8rem;
+  }
+  .endGame .endButtonsDiv {
+    width: 180px;
+  }
+  .endGame .endButtonsDiv .playAgainButton {
+    font-size: 1rem;
+  }
+  .endGame .endButtonsDiv .viewScoreButton {
+    font-size: 0.6rem;
+  }
+  .endGame .dashes .letterDashPair {
+    width: 5vw;
+  }
+}
+@media only screen and (max-width: 1350px) and (min-height: 600px) {
   .gamePageBackground {
     background-image: url("./game_page_background_2.png");
   }
@@ -286,13 +309,13 @@ audio {
     padding-right: 20px;
   }
   .endGame .message {
-    width: 70%;
+    width: 65%;
     font-size: 2.2rem;
     line-height: 2.8rem;
   }
   .endGame .endButtonsDiv {
     margin-left: 0;
-    width: 180px;
+    width: 170px;
   }
   .endGame .endButtonsDiv .playAgainButton {
     font-size: 0.8rem;
@@ -343,10 +366,10 @@ audio {
   }
 
   .container {
-    height: 65vh;
+    height: 70vh;
   }
   .container .hang {
-    width: 47vh;
+    width: 50vh;
   }
 
   .timerDiv {
@@ -364,12 +387,8 @@ audio {
     font-size: 6rem;
   }
 
-  .endGame {
-    height: 2vh;
-  }
   .endGame .message {
     font-size: 1.8rem;
-    height: 50px;
   }
   .endGame .endButtonsDiv {
     margin-right: 20px;
@@ -412,30 +431,32 @@ audio {
   .message2 {
     display: block;
     font-family: "Press Start 2P";
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: normal;
     color: #fd7e14;
     text-align: center;
-    width: 300px;
+    width: 100vw;
     height: 5vh;
-    margin: 20px auto;
-    padding-bottom: 20px;
+    margin: 20px 0 0 0;
+    padding: 0;
     animation: shine 0.5s infinite;
   }
 
   .timerDiv {
     font-size: 2rem;
-    width: 200px;
+    width: 30vw;
+    margin-bottom: 15vh;
   }
   .timerDiv .countDownParagraph {
     font-size: 3rem;
   }
   .timerDiv .alert {
-    font-size: 6rem;
+    font-size: 4.8rem;
   }
 
   .endGame {
-    justify-content: flex-end;
+    justify-content: center;
+    margin-bottom: 15vh;
   }
   .endGame .message {
     display: none;
@@ -445,13 +466,13 @@ audio {
     width: 140px;
   }
   .endGame .endButtonsDiv .viewScoreButton {
-    width: 60%;
+    width: 40%;
   }
   .endGame .endButtonsDiv .viewScoreButton i {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .endGame .endButtonsDiv .playAgainButton {
-    width: 100%;
+    width: 90%;
     border-radius: 20px 20px 20px 20px;
     margin-top: 15px;
   }
@@ -466,16 +487,30 @@ audio {
   }
 
   .container {
-    height: 55vh;
+    height: 75vh;
     justify-content: center;
+    padding-right: 0;
   }
   .container .secondColumn {
-    justify-content: flex-end;
-    width: 50%;
+    height: auto;
+  }
+  .container .hang {
+    width: 45vh;
   }
 
   .dashes .letterDashPair {
-    width: 9vw;
+    width: 7vw;
+  }
+}
+@media only screen and (max-height: 450px) and (min-width: 600px) and (max-width: 768px) {
+  .timerDiv {
+    font-size: 1.7rem;
+  }
+  .timerDiv .countDownParagraph {
+    font-size: 2.5rem;
+  }
+  .timerDiv .alert {
+    font-size: 4rem;
   }
 }
 @media only screen and (max-width: 600px) and (orientation: landscape) {
@@ -484,9 +519,8 @@ audio {
   }
 
   .message2 {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
-    width: 250px;
+    font-size: 1rem;
+    line-height: 1.3rem;
   }
 
   .container .secondColumn {
@@ -510,24 +544,25 @@ audio {
   .endGame .endButtonsDiv {
     width: 110px;
   }
-  .endGame .viewScoreButton {
-    width: 50%;
+  .endGame .endButtonsDiv .viewScoreButton {
+    width: 35%;
+    padding: 0;
   }
-  .endGame .viewScoreButton i.bi-award-fill::before {
-    font-size: 1.5rem;
-    vertical-align: 5px;
+  .endGame .endButtonsDiv .viewScoreButton i.bi-award-fill::before {
+    font-size: 1rem;
+    vertical-align: 9px;
   }
-  .endGame .playAgainButton {
-    width: 100%;
-    border-radius: 5px 5px 5px 5px;
+  .endGame .endButtonsDiv .playAgainButton {
+    width: 95%;
+    border-radius: 10px 10px 10px 10px;
     margin-top: 15px;
   }
-  .endGame .playAgainButton i {
-    font-size: 1.3rem;
+  .endGame .endButtonsDiv .playAgainButton i {
+    font-size: 1.2rem;
   }
-  .endGame .playAgainButton span,
-.endGame .playAgainButton p {
-    font-size: 0.6rem;
+  .endGame .endButtonsDiv .playAgainButton span,
+.endGame .endButtonsDiv .playAgainButton p {
+    font-size: 0.5rem;
   }
 }
 @media only screen and (max-width: 480px) and (orientation: landscape) {
@@ -595,10 +630,10 @@ audio {
   }
 
   .allLetters {
-    width: 85%;
+    width: 80%;
   }
   .allLetters .letterContainer {
-    width: 7vw;
+    width: 6vw;
   }
 
   .message2 {
@@ -715,7 +750,7 @@ audio {
     align-items: center;
   }
   .container .hang {
-    width: 30vh;
+    width: 33vh;
   }
   .container .secondColumn {
     width: 100vw;

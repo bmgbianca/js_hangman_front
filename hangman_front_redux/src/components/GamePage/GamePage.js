@@ -89,7 +89,7 @@ export default function GamePage() {
       removeHyphens(roundWordLettersArray);
     };
     getRoundWord();
-    /*if (roundWordLetters) {
+    if (roundWordLetters) {
       countDownChange = setInterval(() => {
         setCountDown((prevCountDown) => prevCountDown - 1);
       }, 1000);
@@ -97,7 +97,7 @@ export default function GamePage() {
     }
     return () => {
       clearInterval(countDownChange);
-    };*/
+    };
   }, []);
 
   /*Esta função, chamada no useEffect acima, deixa os hífens da palavra visíveis, 
