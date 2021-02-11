@@ -25,12 +25,13 @@ export default function ChallengerPage() {
 
   let inputField = document.getElementById('input');
   const idParagraph = document.getElementById('idParagraph');
-  const tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
+  let tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
 
   useEffect(() => {
     inputField = document.getElementById('input');
     inputField.focus();
     return () => {
+      tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
       tooltip.removeAttribute('title');
     };
   }, []);
