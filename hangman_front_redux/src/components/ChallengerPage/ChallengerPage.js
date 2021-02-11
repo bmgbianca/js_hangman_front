@@ -30,11 +30,14 @@ export default function ChallengerPage() {
   useEffect(() => {
     inputField = document.getElementById('input');
     inputField.focus();
-    return () => {
-      tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
-      tooltip.removeAttribute('title');
-    };
   }, []);
+
+  useEffect(() => {
+    tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
+    window.addEventListener('beforeunload', function () {
+      tooltip.removeAttribute('title');
+    });
+  }, [idNumber]);
 
   useEffect(() => {
     const noSpacesGameWord = gameWord.trim();
