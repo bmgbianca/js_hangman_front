@@ -36,11 +36,8 @@ export default function ChallengerPage() {
     if (tooltip) {
       tooltip.removeAttribute('title');
     }
+    window.removeEventListener('popstate', teste);
   };
-  useEffect(() => {
-    tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
-    window.addEventListener('popstate', teste);
-  }, [idNumber]);
 
   useEffect(() => {
     const noSpacesGameWord = gameWord.trim();
@@ -93,6 +90,8 @@ export default function ChallengerPage() {
     window.getSelection().removeAllRanges();
     const tooltipInner = document.querySelector('.tooltip-inner');
     tooltipInner.textContent = 'ID copiado';
+    tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
+    window.addEventListener('popstate', teste);
   };
 
   const typeNewWord = () => {
@@ -103,6 +102,7 @@ export default function ChallengerPage() {
     setIconsDivClass('noShow');
     setInputFieldClass('inputField');
     setSendButtonDivClass('sendButtonDiv');
+    window.removeEventListener('popstate', teste);
   };
 
   const handleScoreModal = () => {
