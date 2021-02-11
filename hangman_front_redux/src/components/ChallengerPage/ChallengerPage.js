@@ -32,11 +32,14 @@ export default function ChallengerPage() {
     inputField.focus();
   }, []);
 
+  const teste = () => {
+    if (tooltip) {
+      tooltip.removeAttribute('title');
+    }
+  };
   useEffect(() => {
     tooltip = document.querySelector('[data-bs-toggle="tooltip"]');
-    window.addEventListener('beforeunload', function () {
-      tooltip.removeAttribute('title');
-    });
+    window.addEventListener('popstate', teste);
   }, [idNumber]);
 
   useEffect(() => {
