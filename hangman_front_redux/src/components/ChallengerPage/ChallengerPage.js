@@ -30,6 +30,9 @@ export default function ChallengerPage() {
   useEffect(() => {
     inputField = document.getElementById('input');
     inputField.focus();
+    return () => {
+      tooltip.removeAttribute('title');
+    };
   }, []);
 
   useEffect(() => {
