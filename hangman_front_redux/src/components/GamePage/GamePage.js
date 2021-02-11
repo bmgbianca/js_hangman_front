@@ -36,6 +36,7 @@ export default function GamePage() {
   const [isScoreModalOpen, setIsScoreModalOpen] = useState(false);
   const [postFinalScore, setPostFinalScore] = useState(false);
   const [message, setMessage] = useState('');
+  const [endGameMessageClass, setEnedGameMessageClass] = useState('noShow');
   /*Seleção das variáveis globais do Redux - id e gameLevel indicam como 
   deve ser puxada a palavra da base de dados para o jogo, enquanto gameScore 
   é para guardar a pontuação do jogador que será postada na base de dados.*/
@@ -198,6 +199,7 @@ export default function GamePage() {
           disableLetters(generalLettersArray, chosenLetter);
           setPostFinalScore(true);
           setIsDisabled(false);
+          setEnedGameMessageClass('message2');
           timerDiv.classList.remove('timerDiv');
           timerDiv.classList.add('noShow');
           endGameDiv.classList.remove('noShow');
@@ -247,6 +249,7 @@ export default function GamePage() {
       setMessage('GAME OVER! VOCÊ PERDEU!');
       setIsDisabled(false);
       setPostFinalScore(true);
+      setEnedGameMessageClass('message2');
       awnSound.play();
       timerDiv.classList.remove('timerDiv');
       timerDiv.classList.add('noShow');
@@ -307,7 +310,7 @@ export default function GamePage() {
       <h1 id="bigX" className="noShow">
         X
       </h1>
-      <div className="message2">{message}</div>
+      <div className={endGameMessageClass}>{message}</div>
       <main id="main" className="container">
         <img
           src="/forcas/forca_0.png"
